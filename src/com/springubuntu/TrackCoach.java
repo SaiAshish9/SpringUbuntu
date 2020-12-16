@@ -17,6 +17,15 @@ public class TrackCoach implements Coach {
 	public String getDailyFortune() {
 		return fortuneService.getFortune();
 	}
+	
+	public void doMyStartupStuff() {
+		System.out.println("Track");
+	}
+	
+	public void doMyCleanupStuff() {
+		System.out.println("Track C ");
+	}
+	
 
 }
 
