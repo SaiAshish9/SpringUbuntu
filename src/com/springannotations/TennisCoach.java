@@ -1,21 +1,39 @@
 package com.springannotations;
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 //@Component("silly")
 @Component
+@Scope("prototype")
 public class TennisCoach implements Coach {
 	
 //	field injection
 	
 	@Autowired
-//	@Qualifier("happyFortuneService")
-	@Qualifier("randomFortuneService")
+	@Qualifier("happyFortuneService")
+//	@Qualifier("randomFortuneService")
 	private FortuneService fortuneService;
 	
 	public TennisCoach() {
 		System.out.println("default");
+	}
+	
+	
+	@PostConstruct
+	public void start() {
+		System.out.println("start");
+	}
+	
+//	after constructor & injection of d's
+	
+	@PreDestroy
+	public void close() {
+		System.out.println("e");
 	}
 	
 //	constructor injection
@@ -46,6 +64,8 @@ public class TennisCoach implements Coach {
 	public String getDailyFortune() {
 		return fortuneService.getFortune();
 	}
+	
+	
 	
 }
 
