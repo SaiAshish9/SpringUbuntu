@@ -6,18 +6,31 @@ import org.springframework.stereotype.Component;
 @Component
 public class TennisCoach implements Coach {
 	private FortuneService fortuneService;
-	@Autowired
-	public TennisCoach(FortuneService fortuneService) {
-		this.fortuneService = fortuneService;
+	
+	public TennisCoach() {
+		System.out.println("default");
 	}
+	
+//	@Autowired
+//	public TennisCoach(FortuneService fortuneService) {
+//		this.fortuneService = fortuneService;
+//	}
+	
 	@Override
 	public String getDailyWorkout() {
        return "daily";	
 	}
+	
+	@Autowired
+	public void setFortuneService(FortuneService fortuneService) {
+		this.fortuneService = fortuneService;
+	}
+
 	@Override
 	public String getDailyFortune() {
 		return fortuneService.getFortune();
 	}
+	
 }
 
 // TennisCoach -> tennisCoach default bean id
