@@ -12,6 +12,11 @@ public class AnnotationDemoApp {
 				"tennisCoach"
 				,Coach.class);
 		System.out.println(theCoach.getDailyWorkout());
+		
+		System.out.println(theCoach.getDailyFortune());
+		
 		context.close();	
 	}
 }
+
+// for DI spring uses auto-wiring
