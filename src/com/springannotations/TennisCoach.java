@@ -5,12 +5,17 @@ import org.springframework.stereotype.Component;
 //@Component("silly")
 @Component
 public class TennisCoach implements Coach {
+	
+//	field injection
+	
+	@Autowired
 	private FortuneService fortuneService;
 	
 	public TennisCoach() {
 		System.out.println("default");
 	}
 	
+//	constructor injection
 //	@Autowired
 //	public TennisCoach(FortuneService fortuneService) {
 //		this.fortuneService = fortuneService;
@@ -21,10 +26,18 @@ public class TennisCoach implements Coach {
        return "daily";	
 	}
 	
-	@Autowired
-	public void setFortuneService(FortuneService fortuneService) {
-		this.fortuneService = fortuneService;
-	}
+//  setter injection	
+//	@Autowired
+//	public void setFortuneService(FortuneService fortuneService) {
+//		this.fortuneService = fortuneService;
+//	}
+	
+//	method injection
+//	@Autowired
+//	public void methodInjection(FortuneService fortuneService) {
+//		this.fortuneService = fortuneService;
+//	}
+	
 
 	@Override
 	public String getDailyFortune() {
