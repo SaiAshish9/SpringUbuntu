@@ -1,8 +1,12 @@
 package com.springannotations;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-public class AnnotationDemoApp {
+
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+public class JavaConfigDemoApp {
+
 	public static void main(String[] args) {
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationAnnotations.xml");
+		
+		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SportConfig.class);
 		Coach theCoach = context.getBean(
 //				"silly"
 				"tennisCoach"
@@ -13,4 +17,3 @@ public class AnnotationDemoApp {
 	}
 }
 
-// for DI spring uses auto-wiring
